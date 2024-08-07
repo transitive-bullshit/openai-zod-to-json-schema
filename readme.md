@@ -17,11 +17,11 @@
 
 ## Intro
 
-This package exports OpenAI's [vendored version of zod-to-json-schema](https://github.com/openai/openai-node/tree/master/src/_vendor/zod-to-json-schema).
+This package exports OpenAI's [vendored version of zod-to-json-schema](https://github.com/openai/openai-node/tree/master/src/_vendor/zod-to-json-schema) as a standalone module (the source code is copied directly to guarantee a 1:1 match).
 
 It re-adds all of the unit tests from the original [zod-to-json-schema](https://github.com/StefanTerdell/zod-to-json-schema) by [Stefan Terdell](https://github.com/StefanTerdell).
 
-It also adds some additional unit tests for OpenAI's `strict` mode. See [OpenAI's docs on structured outputs](https://platform.openai.com/docs/guides/structured-outputs/supported-schemas) for more details on the subset of JSON Schemas that is supported by OpenAI's structured outputs.
+It also adds some additional unit tests for OpenAI's `strict` mode. See [OpenAI's docs on structured outputs](https://platform.openai.com/docs/guides/structured-outputs/supported-schemas) for more details on the subset of JSON Schemas that are supported by OpenAI's structured outputs.
 
 This package will be kept in sync with any changes to OpenAI's vendored version.
 
