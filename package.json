@@ -25,7 +25,10 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "license",
+    "readme.md",
+    "package.json"
   ],
   "scripts": {
     "build": "tsup",
