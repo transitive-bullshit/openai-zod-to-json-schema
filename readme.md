@@ -23,6 +23,8 @@ It re-adds all of the unit tests from the original [zod-to-json-schema](https://
 
 It also adds some additional unit tests for OpenAI's `strict` mode. See [OpenAI's docs on structured outputs](https://platform.openai.com/docs/guides/structured-outputs/supported-schemas) for more details on the subset of JSON Schemas that is supported by OpenAI's structured outputs.
 
+This package will be kept in sync with any changes to OpenAI's vendored version.
+
 ## Install
 
 > [!NOTE]
