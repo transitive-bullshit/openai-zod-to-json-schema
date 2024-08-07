@@ -1,13 +1,13 @@
-<p align="center">
+# openai-zod-to-json-schema <!-- omit from toc -->
+
+> Convert [Zod schemas](https://zod.dev) to [JSON schemas](https://json-schema.org) which are optionally compatible with [OpenAI's structured outputs](https://platform.openai.com/docs/guides/structured-outputs).
+
+<p>
   <a href="https://github.com/transitive-bullshit/openai-zod-to-json-schema/actions/workflows/main.yml"><img alt="Build Status" src="https://github.com/transitive-bullshit/openai-zod-to-json-schema/actions/workflows/main.yml/badge.svg" /></a>
   <a href="https://www.npmjs.com/package/openai-zod-to-json-schema"><img alt="NPM" src="https://img.shields.io/npm/v/openai-zod-to-json-schema.svg" /></a>
   <a href="https://github.com/transitive-bullshit/openai-zod-to-json-schema/blob/main/license"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue" /></a>
   <a href="https://prettier.io"><img alt="Prettier Code Formatting" src="https://img.shields.io/badge/code_style-prettier-brightgreen.svg" /></a>
 </p>
-
-# openai-zod-to-json-schema <!-- omit from toc -->
-
-> Convert [Zod schemas](https://zod.dev) to [JSON schemas](https://json-schema.org) which are optionally compatible with [OpenAI's structured outputs](https://platform.openai.com/docs/guides/structured-outputs).
 
 - [Intro](#intro)
 - [Install](#install)
