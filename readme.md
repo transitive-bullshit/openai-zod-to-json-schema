@@ -1,5 +1,5 @@
 <p align="center">
-  <em>Convert Zod schemas to JSON schemas which are optionally compatible with OpenAI's structured outputs.</em>
+  <em>Convert <a href="https://zod.dev">Zod schemas</a> to <a href="https://json-schema.org/">JSON schemas</a> which are optionally compatible with <a href="https://platform.openai.com/docs/guides/structured-outputs">OpenAI's structured outputs</a>.</em>
 </p>
 
 <p align="center">
