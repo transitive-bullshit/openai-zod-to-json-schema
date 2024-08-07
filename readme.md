@@ -54,3 +54,5 @@ const schema = zodToJsonSchema(z.any(), { openaiStrictMode: true })
 ## License
 
 MIT © [Travis Fischer](https://x.com/transitive_bs)
+
+Also see the original [zod-to-json-schema license](https://github.com/StefanTerdell/zod-to-json-schema).
