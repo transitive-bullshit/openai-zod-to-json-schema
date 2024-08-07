@@ -1,0 +1,67 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`openaiStrictMode > Optional properties should be set as required 1`] = `
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "bar": {
+      "type": "number",
+    },
+    "baz": {
+      "additionalProperties": false,
+      "properties": {
+        "nala": {
+          "type": "string",
+        },
+      },
+      "required": [
+        "nala",
+      ],
+      "type": "object",
+    },
+    "foo": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "foo",
+    "bar",
+    "baz",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`openaiStrictMode > TODO 1`] = `
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "bar": {
+      "type": "number",
+    },
+    "baz": {
+      "additionalProperties": false,
+      "properties": {
+        "nala": {
+          "type": "string",
+        },
+      },
+      "required": [
+        "nala",
+      ],
+      "type": "object",
+    },
+    "foo": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "foo",
+    "bar",
+    "baz",
+  ],
+  "type": "object",
+}
+`;
