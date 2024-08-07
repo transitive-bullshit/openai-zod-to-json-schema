@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/transitive-bullshit/agentic.git"
+    "url": "git+https://github.com/transitive-bullshit/openai-zod-to-json-schema.git"
   },
   "packageManager": "pnpm@9.7.0",
   "engines": {
