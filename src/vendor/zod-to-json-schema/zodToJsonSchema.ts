@@ -2,6 +2,7 @@ import { ZodSchema } from 'zod';
 import { Options, Targets } from './Options';
 import { JsonSchema7Type, parseDef } from './parseDef';
 import { getRefs } from './Refs';
+import { zodDef, isEmptyObj } from './util';
 
 const zodToJsonSchema = <Target extends Targets = 'jsonSchema7'>(
   schema: ZodSchema<any>,
@@ -15,25 +16,6 @@ const zodToJsonSchema = <Target extends Targets = 'jsonSchema7'>(
   };
 } => {
   const refs = getRefs(options);
-
-  const definitions =
-    typeof options === 'object' && options.definitions ?
-      Object.entries(options.definitions).reduce(
-        (acc, [name, schema]) => ({
-          ...acc,
-          [name]:
-            parseDef(
-              schema._def,
-              {
-                ...refs,
-                currentPath: [...refs.basePath, refs.definitionPath, name],
-              },
-              true,
-            ) ?? {},
-        }),
-        {},
-      )
-    : undefined;
 
   const name =
     typeof options === 'string' ? options
@@ -61,6 +43,39 @@ const zodToJsonSchema = <Target extends Targets = 'jsonSchema7'>(
     main.title = title;
   }
 
+  const definitions = (() => {
+    if (isEmptyObj(refs.definitions)) {
+      return undefined;
+    }
+
+    const definitions: Record<string, any> = {};
+    const processedDefinitions = new Set();
+
+    // the call to `parseDef()` here might itself add more entries to `.definitions`
+    // so we need to continually evaluate definitions until we've resolved all of them
+    //
+    // we have a generous iteration limit here to avoid blowing up the stack if there
+    // are any bugs that would otherwise result in us iterating indefinitely
+    for (let i = 0; i < 500; i++) {
+      const newDefinitions = Object.entries(refs.definitions).filter(
+        ([key]) => !processedDefinitions.has(key),
+      );
+      if (newDefinitions.length === 0) break;
+
+      for (const [key, schema] of newDefinitions) {
+        definitions[key] =
+          parseDef(
+            zodDef(schema),
+            { ...refs, currentPath: [...refs.basePath, refs.definitionPath, key] },
+            true,
+          ) ?? {};
+        processedDefinitions.add(key);
+      }
+    }
+
+    return definitions;
+  })();
+
   const combined: ReturnType<typeof zodToJsonSchema<Target>> =
     name === undefined ?
       definitions ?
@@ -69,6 +84,20 @@ const zodToJsonSchema = <Target extends Targets = 'jsonSchema7'>(
           [refs.definitionPath]: definitions,
         }
       : main
+    : refs.nameStrategy === 'duplicate-ref' ?
+      {
+        ...main,
+        ...(definitions || refs.seenRefs.size ?
+          {
+            [refs.definitionPath]: {
+              ...definitions,
+              // only actually duplicate the schema definition if it was ever referenced
+              // otherwise the duplication is completely pointless
+              ...(refs.seenRefs.size ? { [name]: main } : undefined),
+            },
+          }
+        : undefined),
+      }
     : {
         $ref: [...(refs.$refStrategy === 'relative' ? [] : refs.basePath), refs.definitionPath, name].join(
           '/',
