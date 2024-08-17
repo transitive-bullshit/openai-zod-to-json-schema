@@ -1,6 +1,6 @@
 {
   "name": "openai-zod-to-json-schema",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Convert Zod schemas to JSON schemas which are optionally compatible with OpenAI's structured outputs.",
   "author": "Travis Fischer <travis@transitivebullsh.it>",
   "license": "MIT",
