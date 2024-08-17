@@ -4,7 +4,7 @@ import { z } from 'zod'
 import { zodToJsonSchema } from '.'
 import { assert } from './_utils'
 
-enum nativeEnum {
+enum NativeEnum {
   'a',
   'b',
   'c'
@@ -34,7 +34,7 @@ export const allParsersSchema = z
     intersection: z.intersection(z.string().min(1), z.string().max(4)),
     literal: z.literal('hej'),
     map: z.map(z.string().uuid(), z.boolean()),
-    nativeEnum: z.nativeEnum(nativeEnum),
+    nativeEnum: z.nativeEnum(NativeEnum),
     never: z.never() as any,
     null: z.null(),
     nullablePrimitive: z.string().nullable(),
