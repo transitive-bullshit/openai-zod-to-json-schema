@@ -9,7 +9,8 @@ describe('effects', () => {
   test('should be possible to use refine', () => {
     const parsedSchema = parseEffectsDef(
       z.number().refine((x) => x + 1)._def,
-      getRefs()
+      getRefs(),
+      false
     )
     const jsonSchema: JSONSchema7Type = {
       type: 'number'
@@ -20,7 +21,7 @@ describe('effects', () => {
   test('should default to the input type', () => {
     const schema = z.string().transform((arg) => Number.parseInt(arg))
 
-    const jsonSchema = parseEffectsDef(schema._def, getRefs())
+    const jsonSchema = parseEffectsDef(schema._def, getRefs(), false)
 
     assert(jsonSchema, {
       type: 'string'
