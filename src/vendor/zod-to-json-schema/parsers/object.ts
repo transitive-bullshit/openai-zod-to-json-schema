@@ -54,6 +54,7 @@ export function parseObjectDef(def: ZodObjectDef, refs: Refs) {
         ) {
           // Fix to handle optional properties by making them implicitly
           // nullable instead of throwing an error.
+          // See also: https://github.com/StefanTerdell/zod-to-json-schema/blob/master/src/parsers/object.ts
           parsedDef = {
             anyOf: [parsedDef, { type: 'null' }],
           };
