@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { JSONSchema7Type } from 'json-schema'
 import Ajv from 'ajv'
 import deref from 'local-ref-resolver'

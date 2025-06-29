@@ -14,7 +14,8 @@ describe('openaiStrictMode', () => {
             .object({
               nala: z.string().optional()
             })
-            .optional()
+            .optional(),
+          nala: z.string().optional().default('cat')
         }),
         { openaiStrictMode: true }
       )

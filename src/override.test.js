@@ -1,6 +1,7 @@
-import { z } from 'zod'
 import { describe, test } from 'vitest'
-import { zodToJsonSchema, ignoreOverride } from '.'
+import { z } from 'zod'
+
+import { ignoreOverride, zodToJsonSchema } from '.'
 import { assert } from './_utils'
 
 describe('override', () => {
