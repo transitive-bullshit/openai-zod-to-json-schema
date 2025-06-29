@@ -54,12 +54,9 @@ export function parseObjectDef(def: ZodObjectDef, refs: Refs) {
         ) {
           // Fix to handle optional properties by making them implicitly
           // nullable instead of throwing an error.
-          parsedDef = parseDef(propDef.nullable()._def, {
-            ...refs,
-            currentPath: propertyPath,
-            propertyPath,
-          });
-          if (parsedDef === undefined) return acc;
+          parsedDef = {
+            anyOf: [parsedDef, { type: 'null' }],
+          };
 
           // throw new Error(
           //   `Zod field at \`${propertyPath.join(

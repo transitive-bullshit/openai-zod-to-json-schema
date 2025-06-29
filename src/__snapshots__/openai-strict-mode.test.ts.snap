@@ -8,7 +8,7 @@ exports[`openaiStrictMode > Optional properties should be set as required 1`] = 
     "bar": {
       "anyOf": [
         {
-          "$ref": "#/properties/bar",
+          "type": "number",
         },
         {
           "type": "null",
@@ -18,7 +18,23 @@ exports[`openaiStrictMode > Optional properties should be set as required 1`] = 
     "baz": {
       "anyOf": [
         {
-          "$ref": "#/properties/baz",
+          "additionalProperties": false,
+          "properties": {
+            "nala": {
+              "anyOf": [
+                {
+                  "type": "string",
+                },
+                {
+                  "type": "null",
+                },
+              ],
+            },
+          },
+          "required": [
+            "nala",
+          ],
+          "type": "object",
         },
         {
           "type": "null",
