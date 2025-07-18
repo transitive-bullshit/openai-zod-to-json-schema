@@ -40,8 +40,7 @@
     "test:typecheck": "tsc --noEmit",
     "test:unit": "vitest run",
     "prevendor": "del src/vendor",
-    "vendor": "mkdir -p src/vendor/zod-to-json-schema && cp -r node_modules/openai/src/_vendor/zod-to-json-schema src/vendor",
-    "preinstall": "npx only-allow pnpm"
+    "vendor": "mkdir -p src/vendor/zod-to-json-schema && cp -r node_modules/openai/src/_vendor/zod-to-json-schema src/vendor"
   },
   "devDependencies": {
     "@fisch0920/config": "^1.1.4",
@@ -54,7 +53,6 @@
     "json-schema": "^0.4.0",
     "local-ref-resolver": "^0.2.0",
     "npm-run-all2": "^8.0.4",
-    "only-allow": "^1.2.1",
     "openai": "^5.8.2",
     "prettier": "^3.6.2",
     "tsup": "^8.5.0",
